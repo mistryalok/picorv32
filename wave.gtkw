@@ -1,0 +1,39 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Sat Jan 15 11:15:25 2022
+[*]
+[dumpfile] "/home/alok/Desktop/git/mistryalok/picorv32/testbench.vcd"
+[dumpfile_mtime] "Sat Jan 15 11:12:38 2022"
+[dumpfile_size] 38179
+[savefile] "/home/alok/Desktop/git/mistryalok/picorv32/wave.gtkw"
+[timestart] 1038100
+[size] 1920 1016
+[pos] -9 -9
+*-14.512530 1106900 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[treeopen] testbench.top.
+[treeopen] testbench.top.uut.
+[treeopen] testbench.top.uut.picorv32_core.
+[treeopen] testbench.top.uut.picorv32_core.genblk3.
+[treeopen] testbench.top.uut.picorv32_core.genblk5.
+[sst_width] 233
+[signals_width] 190
+[sst_expanded] 1
+[sst_vpaned_height] 579
+@22
+testbench.top.uut.picorv32_core.cpuregs_rs1[31:0]
+@28
+testbench.top.uut.picorv32_core.instr_addi
+testbench.top.uut.picorv32_core.instr_addi
+@22
+testbench.top.uut.axi_adapter.mem_axi_araddr[31:0]
+@28
+testbench.top.uut.axi_adapter.mem_axi_arvalid
+@22
+testbench.top.uut.axi_adapter.mem_axi_rdata[31:0]
+@28
+testbench.top.uut.axi_adapter.mem_axi_rvalid
+@23
+testbench.top.uut.picorv32_core.next_pc[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

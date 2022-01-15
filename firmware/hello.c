@@ -9,6 +9,6 @@
 
 void hello(void)
 {
-	print_str("hello world\n");
+	print_str("Hey,hello world\n");
 }
 

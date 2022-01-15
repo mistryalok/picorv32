@@ -99,12 +99,15 @@ check.smt2: picorv32.v
 synth.v: picorv32.v scripts/yosys/synth_sim.ys
 	yosys -qv3 -l synth.log scripts/yosys/synth_sim.ys
 
-firmware/firmware.hex: firmware/firmware.bin firmware/makehex.py
+firmware/firmware.hex: firmware/firmware.bin firmware/makehex.py firmware/firmware.asm
 	$(PYTHON) firmware/makehex.py $< 32768 > $@
 
 firmware/firmware.bin: firmware/firmware.elf
 	$(TOOLCHAIN_PREFIX)objcopy -O binary $< $@
 	chmod -x $@
+
+firmware/firmware.asm: firmware/firmware.elf
+	$(TOOLCHAIN_PREFIX)objdump -D firmware/firmware.elf > $(@)
 
 firmware/firmware.elf: $(FIRMWARE_OBJS) $(TEST_OBJS) firmware/sections.lds
 	$(TOOLCHAIN_PREFIX)gcc -Os -mabi=ilp32 -march=rv32im$(subst C,c,$(COMPRESSED_ISA)) -ffreestanding -nostdlib -o $@ \
@@ -176,7 +179,7 @@ clean:
 	rm -rf riscv-gnu-toolchain-riscv32i riscv-gnu-toolchain-riscv32ic \
 		riscv-gnu-toolchain-riscv32im riscv-gnu-toolchain-riscv32imc
 	rm -vrf $(FIRMWARE_OBJS) $(TEST_OBJS) check.smt2 check.vcd synth.v synth.log \
-		firmware/firmware.elf firmware/firmware.bin firmware/firmware.hex firmware/firmware.map \
+		firmware/firmware.elf firmware/firmware.bin firmware/firmware.hex firmware/firmware.map firmware/firmware.asm\
 		testbench.vvp testbench_sp.vvp testbench_synth.vvp testbench_ez.vvp \
 		testbench_rvf.vvp testbench_wb.vvp testbench.vcd testbench.trace \
 		testbench_verilator testbench_verilator_dir
